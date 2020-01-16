@@ -62,19 +62,36 @@ class GalleryController: UIViewController {
   
   // MARK: - Setting Views
   private func setupViews() {
-    view.addSubviews(cardView1)
+    view.addSubviews(cardView1,
+                     cardView2,
+                     cardView3,
+                     cardView4)
   }
   
   // MARK: - Setting Constraints
   private func setupConstraints() {
-    //1
+    let safeArea = view.safeAreaLayoutGuide
+    
     NSLayoutConstraint.activate([
-      //2
-      cardView1.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      cardView1.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-      //3
-      cardView1.widthAnchor.constraint(equalToConstant: 120),
-      cardView1.heightAnchor.constraint(equalToConstant: 200)
+      cardView1.topAnchor.constraint(equalTo: safeArea.topAnchor),
+      cardView1.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+      cardView1.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.5),
+      cardView1.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.5),
+      
+      cardView2.topAnchor.constraint(equalTo: cardView1.topAnchor),
+      cardView2.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+      cardView2.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.5),
+      cardView2.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.5),
+      
+      cardView3.topAnchor.constraint(equalTo: cardView1.bottomAnchor),
+      cardView3.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+      cardView3.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.5),
+      cardView3.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.5),
+      
+      cardView4.topAnchor.constraint(equalTo: cardView1.bottomAnchor),
+      cardView4.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+      cardView4.widthAnchor.constraint(equalTo: safeArea.widthAnchor, multiplier: 0.5),
+      cardView4.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.5)
     ])
     
   }
